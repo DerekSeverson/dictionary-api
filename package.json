@@ -1,0 +1,55 @@
+{
+  "name": "dictionary-api",
+  "version": "1.0.0",
+  "description": "Dictionary API Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "env-cmd .env nodemon index.js | bunyan",
+    "test": "DEBUG='' BUNYAN_OFF=1 env-cmd .env --no-override mocha",
+    "lint": "eslint ./"
+  },
+  "author": "Derek Severson",
+  "license": "UNLICENSED",
+  "private": true,
+  "engine": {
+    "node": ">=8.4"
+  },
+  "dependencies": {
+    "ajv": "^6.0.1",
+    "bluebird": "^3.5.1",
+    "bunyan": "^1.8.12",
+    "bunyan-cloudwatch": "^2.2.0",
+    "debug": "^3.1.0",
+    "ensure-env": "^1.0.0",
+    "is-buffer": "^1.1.6",
+    "is-stream": "^1.1.0",
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-compose": "^4.0.0",
+    "koa-cors": "0.0.16",
+    "koa-mount": "^3.0.0",
+    "koa-route": "^3.2.0",
+    "koa-router": "^7.3.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.19.2",
+    "on-finished": "^2.3.0",
+    "pkginfo": "^0.4.1",
+    "prettyjson": "^1.2.1",
+    "raven": "^2.2.1",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "require-dir": "^0.3.2",
+    "uuid": "^3.1.0",
+    "x.error": "^2.0.0",
+    "yn": "^2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "env-cmd": "^7.0.0",
+    "eslint": "^4.11.0",
+    "eslint-config-severson": "^1.0.0",
+    "mocha": "^5.0.0",
+    "nodemon": "^1.12.1",
+    "supertest": "^3.0.0"
+  }
+}
