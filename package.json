@@ -5,8 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "env-cmd .env nodemon index.js | bunyan",
-    "test": "DEBUG='' BUNYAN_OFF=1 env-cmd .env --no-override mocha",
-    "lint": "eslint ./"
+    "debug": "env-cmd .env nodemon --inspect --inspect-brk index.js",
+    "test": "env-cmd .env.test --no-override mocha --exit",
+    "coverage": "env-cmd .env.test istanbul cover _mocha -- --exit",
+    "lint": "eslint ./",
+    "docker:start": "docker-compose up --build",
+    "docker:test": "docker-compose -f docker-compose.test.yml up --build",
+    "docker:debug": "docker-compose -f docker-compose.debug.yml up --build",
+    "docker:down": "docker-compose down"
   },
   "author": "Derek Severson",
   "license": "UNLICENSED",
@@ -48,6 +54,7 @@
     "env-cmd": "^7.0.0",
     "eslint": "^4.11.0",
     "eslint-config-severson": "^1.0.0",
+    "istanbul": "^1.0.0-alpha.2",
     "mocha": "^5.0.0",
     "nodemon": "^1.12.1",
     "supertest": "^3.0.0"
