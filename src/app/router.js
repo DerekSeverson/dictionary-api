@@ -11,7 +11,8 @@ exports = module.exports = function () {
   router
     .get('/', m.echo(null))
     .get('/ping', m.echo('pong'))
-    .get('/search', routes.search);
+    .get('/search', routes.search)
+    .get('/definition/:word', routes.definition);
 
   return router.routes();
 };

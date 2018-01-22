@@ -39,6 +39,21 @@ class OxfordApiClient {
     });
   }
 
+  async definition({ word }) {
+
+    if (typeof word !== 'string') {
+      throw new Error('Invalid Input');
+    }
+
+    // Ex: "Appalacian Mountains" --> "appalacian_mountains"
+    const id = word.toLowerCase().replace(/ /g, '_');
+
+    return await this._request({
+      method: 'GET',
+      url: `/entries/en/${id}`,
+    });
+  }
+
 }
 
 exports = module.exports = OxfordApiClient;

@@ -68,7 +68,10 @@ exports = module.exports = async ctx => {
       limit,
       offset,
     },
-    results: results.map(item => item.word),
+    results: results.map(item => ({
+      id: item.id,
+      word: item.word,
+    })),
   };
 
 };
