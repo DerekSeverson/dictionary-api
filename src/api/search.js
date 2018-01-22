@@ -7,7 +7,11 @@ const validate = ajv.compile({
   title: 'SearchQueryParameters',
   type: 'object',
   properties: {
-    q: { type: 'string' },
+    q: {
+      type: 'string',
+      minLength: 1,
+      description: 'Search Query Parameter',
+    },
     limit: {
       type: 'integer',
       minimum: 1,
