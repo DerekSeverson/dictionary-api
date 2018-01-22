@@ -10,7 +10,8 @@ exports = module.exports = function () {
 
   router
     .get('/', m.echo(null))
-    .get('/ping', m.echo('pong'));
+    .get('/ping', m.echo('pong'))
+    .get('/search', routes.search);
 
   return router.routes();
 };

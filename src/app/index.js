@@ -11,6 +11,7 @@ app.context.config = require('app/config');
 app.context.package = require('app/package');
 app.context.sentry = require('app/sentry');
 app.context.log = require('app/log');
+app.context.oxford = require('app/oxford');
 
 // Middleware
 
