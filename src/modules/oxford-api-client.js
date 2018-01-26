@@ -3,31 +3,25 @@
 const request = require('request-promise');
 
 const LIMIT = 50;
+const URL = 'https://od-api.oxforddictionaries.com/api/v1';
 
 class OxfordApiClient {
 
   constructor(config) {
-    this.url = config.url || 'https://od-api.oxforddictionaries.com/api/v1';
-    this.id = config.id;
-    this.key = config.key;
-  }
-
-  async _request(config) {
-
-    config.url = `${this.url}${config.url}`;
-    config.json = true;
-    config.resolveWithFullResponse = true;
-    config.headers = Object.assign({}, config.headers, {
-      app_id: this.id,
-      app_key: this.key,
+    this.request = request.defaults({
+      baseUrl: config.url || URL,
+      headers: {
+        app_id: config.id,
+        app_key: config.key,
+      },
+      json: true,
+      resolveWithFullResponse: true,
     });
-
-    return await request(config);
   }
 
   async search({ query, limit = LIMIT, offset = 0, prefix = true }) {
 
-    return await this._request({
+    return await this.request({
       method: 'GET',
       url: '/search/en',
       qs: {
@@ -48,7 +42,7 @@ class OxfordApiClient {
     // Ex: "Appalacian Mountains" --> "appalacian_mountains"
     const id = word.toLowerCase().replace(/ /g, '_');
 
-    return await this._request({
+    return await this.request({
       method: 'GET',
       url: `/entries/en/${id}`,
     });
