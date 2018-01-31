@@ -4,6 +4,10 @@ A Dockerized Nodejs server for fun.
 
 This server provides the api that [`dictionary-ui`](https://github.com/DerekSeverson/dictionary-ui) relies upon.  It interfaces with the [Oxford Dictionaries API](https://developer.oxforddictionaries.com/) in order to search for words and fetch definitions for the UI. 
 
+## Demo
+
+![Demo](https://raw.githubusercontent.com/DerekSeverson/dictionary-api/master/demo/usage.gif)
+
 ## Getting Started
 
 There's a few things needed to get started.  
